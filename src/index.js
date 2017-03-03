@@ -1,9 +1,23 @@
+import _ from 'material-design-lite';
+import 'material-design-lite/material.css';
+import '../styles.css';
+
 var m = require("mithril");
 var ProductGrid = require("./views/ProductGrid");
-var main = document.querySelector("main");
+var Layout = require("./views/Layout");
+// var main = document.querySelector("main");
 
+m.route(document.body, "/", {
+    "/":{
+        render:function(){
+            return m(Layout, m(ProductGrid));
+        }
+    }
+});
 
-m.mount(main, ProductGrid);
+// m.render(document.body, m(Layout,m(ProductGrid)));
+
+// m.mount(document.body, m(Layout));
 
 // var UserList = require("./views/UserList");
 // var UserForm = require("./views/UserForm");

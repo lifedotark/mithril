@@ -1,0 +1,32 @@
+<div class="product-wrapper col m3 s12">
+    <div class="card product hoverable great">
+        <div class="card-image product-image">
+            <img src="{{product.imageUrl}}">
+            <!--<img class="lazy" attr.data-original="{{product.imageUrl}}">-->
+            <a class="product-bar review hvr-fade" href="{{product.offerUrl}}" target="_blank">Ver Oferta</a>
+            <div class="banner-promocao z-depth-2" *ngIf="product.discountPercentage"   >{{product.discountPercentage.toFixed(2)}}%</div>
+        </div>
+        <div class="card-content product-description">
+            <span class="title valign-wrapper">
+                <a class="valign" href="{{product.offerUrl}}" target="_blank">{{product.name}}</a>
+            </span>
+        </div>
+        <div class="card-action">
+            <div class="center-align">
+                <div class="description">
+                    <span *ngIf="product.originalPrice" class="original-wrapper">
+                        De: 
+                        <span class="original-price">{{product.originalPrice}}</span>
+                    </span>
+                    <span *ngIf="product.discountPrice" class="discount-wrapper">
+                        Por:
+                        <span class="discount-price">{{product.discountPrice}}</span>
+                    </span>
+                </div>
+                <div class="product-ratings">
+                    <div class="avaliacao" *ngFor="let star of stars" [ngClass]="{'selecionada': star}"> &#9733;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
